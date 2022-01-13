@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+    <div class="hero-wrap js-fullheight" style="background-image: url('{% static 'images/bg_2.jpg' %}');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start" data-scrollax-parent="true">
+          <div class="col-md-8 ftco-animate text-center text-md-left mb-5" data-scrollax=" properties: { translateY: '70%' }">
+          	<p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-3"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span class="mr-3"><a href="blog.html">Blog <i class="ion-ios-arrow-forward"></i></a></span> <span>Single</span></p>
+            <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Job Detail</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="ftco-section ftco-degree-bg">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 ftco-animate">
+            <h2 class="mb-3">{{ job.title }}</h2>
+            <p>{{ job.description|safe }}</p>
+            <hr>
+
+            <form method="post">
+              {% csrf_token %}
+            {% if user.is_employee %}
+
+               <div class="ml-auto d-flex">
+                 {% if employee_applied %}
+            <input type="submit" value="Apply" class="btn btn-primary py-2 mr-1" disabled title="You Already applied">
+              {% else %}
+             <input type="submit" value="Apply" class="btn btn-primary py-2 mr-1">
+
+                 {% if in_my_list %}
+                              <a href="javascripts:void(0);" id="jobwl{{ job.id }}" title="Remove from my wish list" data-wl="1" onclick="addorremove({{ job.id }})" class="btn btn-danger rounded-circle btn-favorite d-flex align-items-center">
+                                <span class="icon-heart"></span>
+                            </a>
+                              {% else %}
+
+                            <a href="javascripts:void(0);" id="jobwl{{ job.id }}" title="Add to my wish list" data-wl="0" onclick="addorremove({{ job.id }})" class="btn btn-primary rounded-circle btn-favorite d-flex align-items-center">
+                                <span class="icon-heart"></span>
+                            </a>
+                              {% endif %}
+                 {% endif %}
+               </div>
+            {% endif %}
+            </form>
+
+          {% if user.is_employer and user.id == employer_id %}
+          {% if applied_employees %}
+            <div class="list-group">
+              <button type="button" class="list-group-item list-group-item-action active" style="text-align:center">
+                Applied Candidates
+              </button>
+
+              {% for employee in applied_employees %}
+              <a href="{% url 'users:employee_profile' employee_id=employee.pk job_id=job.id %}" class="list-group-item list-group-item-action">{{ employee.first_name }}  {{ employee.last_name }}</a>
+            {% endfor %}
+            </div>
+            {% else %}
+            <div class="list-group">
+              <button type="button" class="list-group-item list-group-item-action active" style="text-align:center">
+                No Applied Candidates
+              </button>
+
+            </div>
+
+            {% endif %}
+            <div class="tag-widget post-tag-container mb-5 mt-5">
+              <a href="{% url 'jobs:delete_job' slug=job.slug pk=job.pk %}" class="btn btn-danger py-2 mr-1">Delete</a>
+              <a href="{% url 'jobs:update_job' slug=job.slug pk=job.pk %}" class="btn btn-primary py-2 mr-1">Update</a>
+            </div>
+            {% endif %}
+          </div> <!-- .col-md-8 -->
+          <div class="col-md-4 sidebar ftco-animate">
+            <div class="sidebar-box">
+<!--              <form action="#" class="search-form">-->
+<!--                <div class="form-group">-->
+<!--                  <span class="icon icon-search"></span>-->
+<!--                  <input type="text" class="form-control" placeholder="Type a keyword and hit enter">-->
+<!--                </div>-->
+<!--              </form>-->
+            </div>
+            <div class="sidebar-box ftco-animate">
+              <div class="categories">
+                <h3>Categories</h3>
+                {% for category in categories %}
+                <li><a href="#">{{ category.title }} <span>{{ category.job_count }}</span></a></li>
+               {% endfor %}
+              </div>
+            </div>
+
+
+
+
+          </div>
+
+        </div>
+      </div>
+    </section> <!-- .section -->
+
+	{% endblock %}
+
