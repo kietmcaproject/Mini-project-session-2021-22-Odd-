@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DigiBudd</title>
+    <link rel="stylesheet" href="home.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <script>
+        window.watsonAssistantChatOptions = {
+            integrationID: "a47f2cfd-13a3-4ff5-a500-53393961217d", // The ID of this integration.
+            region: "eu-de", // The region your integration is hosted in.
+            serviceInstanceID: "31cdb292-70f1-4897-a4e0-28de948cc01d", // The ID of your service instance.
+            onLoad: function(instance) { instance.render(); }
+          };
+        setTimeout(function(){
+          const t=document.createElement('script');
+          t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js"
+          document.head.appendChild(t);
+        });
+      </script>
+    <header>
+        <nav>
+            <ul id='MenuItems'>
+                <li><a href='home.html'>Home</a></li>
+                <li><a href='index.html'>About Us</a></li>
+                <li><a href='blog.html'>Blog</a></li>
+                <li><a href='login.html'>Login</a></li>
+                <li><a href='reco.html'>Recommendations</a></li>
+
+            </ul>
+        </nav>
+
+        <h1 class="big-title translate" data-speed="0.1">Welcome Buddy!</h1>
+
+        <img src="images/hi.gif" class="person translate" data-speed="-0.25" alt="">
+        <img src="images/mountain1.png" class="mountain1 translate" data-speed="-0.2" alt="">
+        <img src="images/mountain2.png" class="mountain2 translate" data-speed="0.4" alt="">
+        <img src="images/mountain3.png" class="mountain3 translate" data-speed="0.3" alt="">
+        <img src="images/sky.png" class="sky translate" data-speed="0.5" alt="">
+    </header>
++-6
+    <section>
+        <div class="shadow"></div>
+
+        <div class="container">
+            <div class="content opacity">
+                <h3 class="title">
+                    About
+                    <div class="border"></div>
+                </h3>
+                <p class="text">DigiBudd will be your customized digital buddy that helps you to explore more of your feelings also helping you out with anxiety, depression which can cause distress in your day to day life. Our motive to make Digibudd was to help you
+                    and act as an virtual friend which can guide you or provide you a safe space to let out your feelings, dealing with anxiety, depression...<br>This safe space will act as your guide to explore your feelings which can cause distress.
+                    Also DigiBudd understands the importance of being listened to, in confidence, anonymously, and without prejudice. We hope you find your buddy in DigiBudd</p>
+            </div>
+
+            <div class="imgContainer opacity">
+                <img src="images/db.gif" alt="">
+            </div>
+        </div>
+    </section>
+
+    <script src="home.js"></script>
+</body>
+
+</html>
