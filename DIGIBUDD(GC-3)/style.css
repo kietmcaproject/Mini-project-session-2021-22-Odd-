@@ -1,0 +1,181 @@
+.container {
+    width: 1476px;
+    margin: 0px auto;
+}
+
+.box {
+    width: 100%;
+    min-height: 100px;
+    height: auto;
+}
+
+
+/* home section */
+
+#home {
+    display: flex;
+    flex-direction: column;
+    padding: 3px 200px;
+    height: 547px;
+    justify-content: center;
+    align-items: center;
+}
+
+#home::before {
+    content: "";
+    background: url('images/mt.jpg') no-repeat center center/cover;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 92%;
+    /*image height*/
+    width: 100%;
+    z-index: -1;
+    opacity: 1;
+}
+
+
+/*  For heading tags */
+
+#home h1 {
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+
+#home h4 {
+    text-align: center;
+    color: black;
+    font-family: 'Merriweather', serif;
+}
+
+
+/* For paragraphs */
+
+#home p {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.678);
+    font-size: 1.5rem;
+    font-family: 'Merriweather', serif;
+    background: rgba(116, 114, 114, 0.6);
+    border-radius: 10px;
+}
+
+
+/* contact-section */
+
+#contact {
+    margin: -5px;
+    display: flex;
+}
+
+#contact .box {
+    border: 2px solid black;
+    padding: 20px;
+    margin: 4px 4px;
+    margin-bottom: 23px;
+    border-radius: 2px;
+    background: #ffffff;
+}
+
+#contact .box img {
+    height: 200px;
+    border: 100px;
+    margin: auto;
+    display: block;
+}
+
+#contact .box p {
+    font-family: 'Merriweather', serif;
+    font-family: 'Merriweather', serif;
+}
+
+
+/* footer section */
+
+footer {
+    background-color: rgba(116, 114, 114, 0.6);
+    color: black;
+    padding: 9px 9px;
+}
+
+
+/* utility class */
+
+.h-primary1 {
+    font-size: 3.2rem;
+    padding: 4px;
+    font-family: 'Bebas Neue', cursive;
+    background: rgba(116, 114, 114, 0.6);
+    border-radius: 10px;
+}
+
+.h-primary2 {
+    font-size: 2.2rem;
+    padding: 2px;
+    font-family: 'Bebas Neue', cursive;
+    background: rgba(116, 114, 114, 0.6);
+    border-radius: 10px;
+}
+
+.h-primary11 {
+    font-size: 3.2rem;
+    padding: 4px;
+    font-family: 'Bebas Neue', cursive;
+    color: rgb(0, 0, 0);
+}
+
+.center {
+    text-align: center;
+}
+
+
+/*Nav section*/
+
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    padding-left: 30px;
+    padding-right: 50px;
+    padding-top: 70px;
+}
+
+nav {
+    flex: 1;
+    text-align: right;
+}
+
+nav ul {
+    display: inline-block;
+    list-style: none;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 50px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    font-family: sans-serif;
+}
+
+nav ul li button {
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    outline: none;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-family: sans-serif;
+}
+
+nav ul li button:hover {
+    color: rgba(0, 183, 255, 0.527);
+}
+
+nav ul li a:hover {
+    color: rgba(0, 183, 255, 0.527);
+}
