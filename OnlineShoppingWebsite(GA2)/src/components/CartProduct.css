@@ -1,0 +1,25 @@
+.cartProduct {
+    display: flex;
+    padding: 15px;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    background-color: #f6f6f6;
+    margin-bottom: 20px;
+}
+
+.cartProduct > img {
+  object-fit: contain;
+  width: 150px;
+}
+.cartProduct > div {
+  margin-left: 10px;
+}
+.cartProduct > div > button {
+  cursor: pointer;
+  color: #111;
+  background-color: #f0c14b;
+  border: 1px solid #846a29;
+  border-radius: 2px;
+  margin-top: 3px;
+  padding: 2px;
+}
