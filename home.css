@@ -1,0 +1,101 @@
+.home {
+  min-height: 100vh;
+  background-color:black;
+  /* background-image: linear-gradient( to right, rgba(0, 0, 0,0.2) , rgba(48, 59, 158, 0.2)), url("img/hero1.jpg"); */
+  background-size: cover;
+  background-position: center;
+  padding: 15px;
+}
+.home:hover{
+  
+}
+
+.full-screen {
+  min-height: 100vh;
+}
+.home-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+.block {
+  flex: 0 0 75%;
+  max-width: 75%;
+  color: rgb(236, 241, 250);
+  padding-left: 35px;
+  border-left: 3px solid rgb(236, 241, 250);
+  margin-top: 50px;
+}
+.block h1 {
+  font-size: 65px;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+  text-shadow: 2px 5px 4px rgba(0, 84, 186,0.9);
+}
+
+.block h3 {
+  font-size: 25px;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+  text-shadow: 2px 3px 3px rgba(0, 84, 186,0.9);
+}
+.block h6 {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+  text-shadow: 2px 3px 3px rgba(0, 84, 186,0.9);
+}
+.block h6 span:before{
+        position: absolute;
+        content: '';
+        animation: animate infinite 8s;
+        text-shadow: 2px 3px 3px rgba(0, 84, 186,0.9);
+      }
+      @keyframes animate{
+        0%{
+                content: ' "Developers" ';
+        }
+        20%{
+                content: ' "Creaters" ';
+        }
+        40%{
+                content: ' "Innovator" ';
+        }
+        60%{
+                content: ' "Reliable" ';
+        }
+        80%{
+                content: ' "Flexible" ';
+        }
+        100%{
+                content: ' "Understandable" ';
+        }
+      }
+.cv-btn {
+  padding-top: 20px;
+}
+.cv-btn a {
+  font-size: 14px;
+  color: rgb(236, 241, 250);
+  background-color: transparent;
+  border: 1px solid rgb(0, 84, 186);
+  text-shadow: 2px 3px 3px rgba(0, 84, 186,0.9);
+  border-radius: 4px;
+  padding: 12px 25px;
+  display: inline-block;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+.cv-btn a:hover {
+  background-color: rgb(0, 84, 186);
+  color: #fff;
+  text-shadow: 1px 2px 2px rgba(0, 0, 0,0.7);
+}
