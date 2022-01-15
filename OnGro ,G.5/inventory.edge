@@ -1,0 +1,90 @@
+@layout('layouts.app')
+
+@section('content')
+<script>	
+var flag=0;	
+    $(document).ready(function(){		
+        $("li").removeClass("active");		
+        $("li.inventory").addClass("active");	
+        if(flag == 0){
+          $(".fulllist").append("<div class='container' style='text-align: center'><h3>No Items in Archive</h3></div>");
+        }	
+    });		
+</script>
+@if(auth=='admin@admin.com')
+
+  <!-- Page Content -->
+  <div class="container">
+
+      <h1 class="sty" style="text-align : center;">Archive Inventory</h1>
+      <br>
+    <div class="row">
+
+      
+      <div class="col-lg-12">
+        <div class ="container-fluid page">  
+          <nav aria-label=... >
+              <ul class= "pagination">
+                <li id="previous-page"><a href="javascript:void(0)" aria-label=Previous><span aria-hidden=true>&laquo;</span></a></li>
+              </ul>
+            </nav></div>
+
+        <div class="row fulllist" id="list">
+          @each(item in items)
+          @if(item.available == false || item.totalQuantity == 0)
+          <script>flag = 1;</script>
+          <div class="col-lg-4 col-md-6 mb-4 each_item">
+            <div class="card h-100 text-center">
+                <a href="#"><img class="card-img-top" src="{{item.imagePath}}" alt="{{item.name}}"></a>
+                <div class="card-body">
+                  <h4 class="card-title textlimit">
+                    <a href="/item/{{item._id}}">{{item.name}}</a>
+                  </h4>
+                  <h5>ID: {{item._id}}</h5>
+                  <h5 class="textlimit">Description: {{item.description}}</h5>
+                  <h5>Tags: {{item.tags}}</h5>
+                  <h5>Quantity: {{item.totalQuantity}}</h5>
+                  <h5>PricePerItem: ${{item.pricePerItem}}</h5>
+                  
+                </div>
+                <div class="card-footer ">
+                 
+                  <a href="/updateItem/{{item._id}}" class="btn btn-outline-info">Update</a> 
+                  <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalCenter">Delete</button>  
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLongTitle">Confirmation</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                        Are you sure,you want to permanently delete this product?
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <a href="/deleteItem/{{item._id}}"><button type="button" class="btn btn-danger">Delete</button></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+          @endif
+          @endeach
+          
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+  <script src="/vendor/page.js"></script>
+
+  @endif
+@endsection

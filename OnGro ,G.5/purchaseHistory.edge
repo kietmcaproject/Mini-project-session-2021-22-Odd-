@@ -1,0 +1,44 @@
+@layout('layouts.app')
+
+@section('content')
+<script>		
+    $(document).ready(function(){		
+        $("li").removeClass("active");		
+        $("li.purchase_history").addClass("active");		
+    });		
+</script>
+<div class="container">
+    @if(transaction.length == 0)
+        <h1 class="sty" style="text-align : center;">Empty Purchases</h1>
+    @else
+    <h1 class="sty" style="text-align : center;">Purchase History</h1>
+    <br>
+    @each(t in transaction)
+    <div class="row all_purchases">
+    <div>
+    <h5>Transaction Number : {{t._id}}</h5>
+    <h5>Purchase Time : {{t.timestamp}}</h5>
+    <h5>Total Purchase Price : Rs.{{t.totalPrice}}</h5>
+    <h5>Delivery Address: {{t.deliveryAddress}}</h5>
+    </div>
+    <div class="row">
+    @each(item in t.items)
+    <div class="col-lg-4 col-md-6 mb-4">
+      <div class="card h-100 text-center">
+          <a href="#"><img class="card-img-top img-fluid" src="{{item.imagePath}}" alt="{{item.name}}"></a>
+          <div class="card-body">
+            <h4 class="card-title textlimit">
+              <a href="/item/{{item.itemId}}">{{item.name}}</a>
+            </h4>
+            <h5>Total Quanity : {{item.quantity}}</h5>
+            <h5>Total Price Rs.{{item.price}}</h5>
+          </div>
+      </div>
+    </div>
+    @endeach
+    </div>
+    </div>
+    @endeach        
+    @endif
+</div>
+@endsection
