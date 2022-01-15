@@ -1,0 +1,27 @@
+.parallax1, .parallax2 {
+    min-height: 100vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallax1 {
+    background-image: url("../img/home/parallax1.jpg");
+}
+
+.parallax2 {
+    background-image: url("../img/home/parallax2.jpg");
+}
+
+.parallax1-tagline {
+    padding-top: 30vh;
+}
+
+.hover-white:hover {
+    color: white !important;
+}
+
+.college-intro {
+    min-height: 100vh;
+}

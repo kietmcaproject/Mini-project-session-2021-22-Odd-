@@ -1,0 +1,6 @@
+.option-container div label:hover{
+    cursor: pointer;
+}
+.option-container div label input:hover{
+    cursor: pointer;
+}
