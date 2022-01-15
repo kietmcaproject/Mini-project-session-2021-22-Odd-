@@ -1,0 +1,141 @@
+.login_form{
+  margin-top: 50px;
+}
+.login_img {
+  object-fit: contain;
+  width: 170px;
+  margin-top: -30px;
+  margin-bottom: -30px;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login_form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: fit-content;
+  border: 1px solid lightgray;
+  padding: 0px 20px;
+  background-color: white;
+}
+
+.login_form > h2 {
+  font-weight: 500;
+  font-size: 27px;
+  margin-bottom: 7px;
+}
+
+.login_formOption {
+  font-weight: 600;
+  font-size: 13px;
+  margin-top: 7px;
+  margin-bottom: 5px;
+}
+
+.login_formText {
+  width: 95%;
+  padding: 7px;
+  border-radius: 2px;
+  border: 1px solid gray;
+  margin-bottom: 5px;
+  border-radius: 2px;
+  outline: none;
+}
+
+.login_formText:focus {
+  border: 1px solid #febd69;
+  outline: 2px solid #febd69;
+}
+
+.login_formText[type="text"] {
+  font-weight: lighter;
+  font-size: 13px;
+}
+
+.login_login {
+  margin-top: 15px;
+  padding: 7px;
+  border-radius: 2px;
+  background-color: #febd69;
+  border: 1px solid #846a29;
+  cursor: pointer;
+  color: #111;
+  font-size: 15px;
+  outline: none;
+  text-align: center;
+}
+
+.login_login:hover,
+.login_login:focus {
+  outline: 2px solid #febd69;
+  background-color: #eeb160;
+}
+
+.login_form > p {
+  font-size: 12px;
+  font-weight: 400;
+  margin: 25px 0px;
+  margin-bottom: 40px;
+}
+
+.login_form_pSpan {
+  color: #0066c0;
+  cursor: pointer;
+}
+
+.login_form_pSpan:hover {
+  text-decoration: underline;
+}
+
+.login_line {
+  margin-top: 40px;
+  border-bottom: 1px solid rgb(192, 188, 188);
+  width: 350px;
+  margin-bottom: -11px;
+}
+
+.login_linePara {
+  font-size: small;
+  font-weight: 300;
+  background-color: white;
+  margin-bottom: 15px;
+  color: rgb(99, 95, 95);
+}
+
+.login_register {
+  width: 350px;
+  padding: 7px;
+  text-align: center;
+  border-radius: 2px;
+  border: 1px solid rgb(71, 69, 69);
+  color: rgb(31, 29, 29);
+  outline: none;
+  margin-bottom: 30px;
+}
+
+.login_register:hover,
+.login_register:focus {
+  background-color: rgb(224, 218, 218);
+  outline: 2px solid rgb(211, 204, 204);
+}
+
+/* forget pasword */
+.login_forgot:hover {
+  text-decoration: underline;
+}
+
+.login_forgot {
+  text-decoration: none;
+  color: #0066c0;
+}
+
+.forgot {
+  margin-top: -4px;
+  align-self: flex-end;
+  font-weight: 400;
+}

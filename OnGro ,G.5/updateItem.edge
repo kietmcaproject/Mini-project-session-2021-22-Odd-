@@ -1,0 +1,53 @@
+@layout('layouts.app')
+
+@section('content')
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 card">
+            <div class="card-header"><h1 class="sty">Update Item</h1></div>
+            <div class="card-body">
+            <form action="/editItem" method="POST" encType="multipart/form-data">
+                <div class="control-group">
+                    <input type="text" placeholder="Name" name="name" class="form-control" value="{{item.name}}" required>
+                </div>
+                <div class="control-group">
+                        <input type="text" placeholder="Name" style="display:none" name="_id" class="form-control" value="{{item._id}}" required>
+                    </div>
+                <div class="control-group">
+                        <input type="text" placeholder="Description" name="description" class="form-control" value="{{item.description}}" required>
+                </div>
+                <div class="control-group">
+                        <input type="number" placeholder="Total Quantity" name="totalQuantity" class="form-control" min="1" step="1" value="{{item.totalQuantity}}" required>
+                </div>
+                <div class="control-group">
+                        <input type="number" placeholder="Price Per Item" name="pricePerItem" class="form-control" step="0.01" value="{{item.pricePerItem}}" required >
+                </div>
+                <div class="control-group">
+                        <textarea name="tags" placeholder="Tags seperated by ','" class="form-control"  required>{{tags}}</textarea>
+                </div>
+                <div class="checkbox">
+                <br>
+                <label style="color: #414141"> 
+                @if(item.available == true)
+                <input type="checkbox" name="available" checked> 
+                @else
+                <input type="checkbox" name="available"> 
+                @endif
+                Available
+                </label>
+                </div>
+                <div class="from-group mt-5">
+                    <img class="card-img-top img-fluid" src="{{item.imagePath}}" alt="{{item.name}}>
+                    <input type="file" name="image" class="form-control-file" value="{{item.imagePath}}" >
+                </div>
+                <div class="form-group my-4 text-center">
+                    <button class="btn addbtncolor">Update Item</button>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@endsection

@@ -1,0 +1,30 @@
+.home {
+  background-color: rgb(234, 237, 237);
+}
+
+.home_banner {
+  width: 100%;
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 0)
+  );
+  z-index: -1;
+  margin-bottom: -150px;
+}
+
+.home_product {
+  display: flex;
+  z-index: 1;
+  justify-content: center;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 550px) {
+  .home_product {
+    flex-direction: column;
+  }
+}

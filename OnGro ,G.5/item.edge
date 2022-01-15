@@ -1,0 +1,47 @@
+@layout('layouts.app')
+
+@section('content')
+<div class="container item_details">
+
+  <div class="row">
+
+    <div class="col-lg-7 detail_img">
+      <img class="img-fluid detail_img" src="{{item.imagePath}}" alt="{{item.name}}">
+    </div>
+    <div class="col-lg-5">
+      <form action="/addToCart" method="POST">
+        <input type="text" style="display:none" name="_id" value="{{item._id}}">
+        <input type="text" style="display:none" name="price" value="{{item.pricePerItem}}">
+        <input type="text" style="display:none" name="imagePath" value="{{item.imagePath}}">
+        <input type="text" style="display:none" name="name" value="{{item.name}}">
+        <ul class="list-group">
+          <li class="list-group-item">
+            <h1 class="sty">Product Details</h1>
+          </li>
+          <li class="list-group-item">
+            <div class="just">
+              <h4>Product Name:</h4>{{item.name}}
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="just">
+              <h4>Description:</h4>{{item.description}}
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="just">
+              <h4>Price:</h4>Rs.{{item.pricePerItem}}
+            </div>
+          </li>
+          <li class="list-group-item"><button class="btn btn-block addbtncolor">Add to Cart</button></li>
+          @if(auth=='admin@admin.com')
+          <li class="list-group-item"><a href="/updateItem/{{item._id}}"
+              class="btn btn-block btn-outline-info">Update</a></li>
+          @endif
+        </ul>
+      </form>
+    </div>
+  </div>
+</div>
+
+@endsection

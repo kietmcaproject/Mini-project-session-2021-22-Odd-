@@ -1,0 +1,181 @@
+.header {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  background-color: #131a22;
+  position: sticky;
+  top: 0px; /*learn Remember*/
+  z-index: 100; /*learn Remember*/
+  width: 100%;
+}
+
+/* logo */
+.header_logo {
+  object-fit: contain;
+  width: 100px;
+  margin: 0 20px;
+  margin-top: 11px;
+}
+
+/* search_bar */
+.header_search {
+  flex: 1; /*learn */
+  display: flex;
+  align-items: center;
+}
+
+.header_input {
+  width: 100%;
+  border-radius: 3px 0px 0px 3px;
+  padding: 10px;
+  height: 14px;
+  border: none;
+  outline: none;
+}
+
+.header_input[type="text"] {
+  font-size: 18px;
+}
+
+.header_icon {
+  background-color: #febd69;
+  padding: 5px; /*learn Remember //to increase the outer area of icon*/
+  border-radius: 0px 3px 3px 0px;
+}
+
+/* navigation */
+.header_nav {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  text-decoration: none;
+}
+
+.header_options {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: white;
+}
+
+.header_options:hover {
+  outline: 1px solid white;
+  outline-offset: 5px;
+}
+
+.header_lineOne {
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.header_lineTwo {
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.header_optionCart {
+  color: white;
+  display: flex;
+  align-items: center;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.header_optionCart:hover {
+  outline: 1px solid white;
+  outline-offset: 5px;
+}
+
+/* link text decoration */
+
+.header_linkToLogin {
+  text-decoration: none;
+}
+
+.header_linkToCart {
+  text-decoration: none;
+}
+
+/* sign in dropdown menu */
+
+.header_signIn {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* for the smaller triangle near sign in*/
+.header_arrowup {
+  display: none;
+  position: absolute;
+  top: 30px;
+  height: 0px;
+  width: 0px;
+  border-bottom: 8px solid white;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+}
+.header_signIn:hover .header_arrowup{
+  display: block;
+}
+
+.header_SignInMenu {
+  display: none;
+  position: absolute;
+  top: 36px;
+  background-color: #ffffff;
+  width: 200px;
+  height: 80px;
+}
+
+.header_signIn:hover .header_SignInMenu {
+  display: block;
+}
+
+.header_signInmenuBtn {
+  width: 100px;
+  padding: 5px;
+  border-radius: 2px;
+  background-color: #febd69;
+  border: 1px solid #846a29;
+  cursor: pointer;
+  color: #111;
+  font-size: 14px;
+  outline: none;
+  margin: 10px 0px;
+  margin-left: 45px;
+}
+
+.header_signInmenuBtn:hover {
+  background-color: #eb9525;
+}
+
+.header_signInmenuBtn:focus {
+  background-color: #eb9525;
+}
+
+.header_SignInMenuText {
+  font-weight: 400;
+  color: rgb(99, 95, 95);
+  font-size: 12px;
+  margin-left: 25px;
+}
+
+.header_SignInMenu_signup {
+  color: #0066c0;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.header_SignInMenu_signup:hover {
+  color: red;
+  text-decoration: underline;
+}
+
+.header_SignInMenu_signupLink {
+  text-decoration: none;
+}

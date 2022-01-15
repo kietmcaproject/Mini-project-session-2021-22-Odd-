@@ -1,0 +1,50 @@
+@layout('layouts.app')
+
+@section('content')
+<script>
+    var mywindow = window.open('', 'PRINT', 'height=400,width=600');
+    mywindow.document.write('<html><head><title> Reciept </title>');
+    mywindow.document.write('</head><body>');
+    mywindow.document.write('<h3 style="text-align:center"><u><b> FreshNGreen </b></u></h1>');
+    mywindow.document.write('<h4 style="text-align:center">Username :- {{userId}} <u><b></b></u></h2>');
+    mywindow.document.write('<h4 style="text-align:center">Address :- {{address}} <u><b></b></u></h2>');
+    mywindow.document.write('<table>')
+    mywindow.document.write('<tr><td colspan="3"> Date: {{currentDate}} </td></tr>') 
+    mywindow.document.write('<tr><td> Item Name </td><td> Quantity </td><td> Price </td></tr>')
+    </script>
+    @each(item in CartItems)
+    <script>
+    mywindow.document.write('<tr><td> {{item.name}} </td><td> {{item.quantity}} </td><td> Rs.{{item.price}} </td></tr>')
+    </script>
+    @endeach
+    
+    <script>
+    mywindow.document.write('<tr><td colspan="3">Total Price: Rs.{{CartPrice}} </td></tr>')    
+    mywindow.document.write('<table>')
+    mywindow.document.write('</body></html>');
+
+    mywindow.document.close();
+    mywindow.focus();
+
+    mywindow.print();
+    mywindow.close();
+</script>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            @if(alreadyPurchased == 1)
+            <h3 class="text-center sty">Transaction Done Already.</h3>
+            @else
+            <form action="/signInUser" method="POST" encType="multipart/form-data">
+                <div class="control-group">
+                    <div class="form-group floating-label-form-group controls text-center">
+                        <h1 class="sty">Transaction Completed</h1>
+                    </div>
+                </div>
+                
+            </form>
+            @endif
+        </div>
+    </div>
+</div> 
+@endsection
