@@ -1,0 +1,24 @@
+main {
+    background-color: #e7e7e7;
+    color: black;
+}
+
+.landing-page-btn {
+    background-color: black;
+    border-radius: 10px;
+}
+
+.form-control {
+    font-size: 18px;
+    padding: 0px 10px;
+    border-radius: 0%;
+    border: 3px solid black;
+}
+
+.form-label {
+    font-size: 20px;
+}
+
+.error-text {
+    color: red;
+}
