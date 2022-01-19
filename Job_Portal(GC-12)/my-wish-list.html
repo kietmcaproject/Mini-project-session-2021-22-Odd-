@@ -1,0 +1,235 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="hero-wrap js-fullheight" style="background-image: url('{% static 'images/bg_2.jpg' %}');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
+          <div class="col-xl-10 ftco-animate mb-5 pb-5" data-scrollax=" properties: { translateY: '70%' }">
+          	<p class="mb-4 mt-5 pt-5" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">We have <span class="number" data-number="{{ all_jobs }}">0</span> great job offers you deserve!</p>
+            <h1 class="mb-5" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Your Dream <br><span>Job is Waiting</span></h1>
+
+						<div class="ftco-search">
+							<div class="row">
+		            <div class="col-md-12 nav-link-wrap">
+			            <div class="nav nav-pills text-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+			              <a class="nav-link active mr-md-1" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab" aria-controls="v-pills-1" aria-selected="true">Find a Job</a>
+
+			              <a class="nav-link" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2" role="tab" aria-controls="v-pills-2" aria-selected="false">Find a Candidate</a>
+
+			            </div>
+			          </div>
+			          <div class="col-md-12 tab-wrap">
+
+			            <div class="tab-content p-4" id="v-pills-tabContent">
+
+			              <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-nextgen-tab">
+			              	<form action="{% url 'jobs:search' %}" class="search-job" method="get">
+			              		<div class="row">
+			              			<div class="col-md">
+			              				<div class="form-group">
+				              				<div class="form-field">
+				              					<div class="icon"><span class="icon-briefcase"></span></div>
+								                <input type="text" name="job_title" class="form-control" placeholder="eg. Garphic. Web Developer">
+								              </div>
+							              </div>
+			              			</div>
+			              			<div class="col-md">
+			              				<div class="form-group">
+			              					<div class="form-field">
+				              					<div class="select-wrap">
+						                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+						                      <select name="job_type" id="" class="form-control">
+						                      	<option value="full_time">Full Time</option>
+						                        <option value="part_time">Part Time</option>
+						                        <option value="freelance">Freelance</option>
+						                        <option value="internship">Internship</option>
+						                        <option value="temporary">Temporary</option>
+						                      </select>
+						                    </div>
+								              </div>
+							              </div>
+			              			</div>
+			              			<div class="col-md">
+			              				<div class="form-group">
+			              					<div class="form-field">
+				              					<div class="icon"><span class="icon-map-marker"></span></div>
+								                <input type="text" name="job_location" class="form-control" placeholder="Location">
+								              </div>
+							              </div>
+			              			</div>
+			              			<div class="col-md">
+			              				<div class="form-group">
+			              					<div class="form-field">
+								                <input type="submit" value="Search" class="form-control btn btn-primary">
+								              </div>
+							              </div>
+			              			</div>
+			              		</div>
+			              	</form>
+			              </div>
+
+			              <div class="tab-pane fade" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-performance-tab">
+			              	<form action="#" class="search-job">
+			              		<div class="row">
+			              			<div class="col-md">
+			              				<div class="form-group">
+				              				<div class="form-field">
+				              					<div class="icon"><span class="icon-user"></span></div>
+								                <input type="text" class="form-control" placeholder="eg. Adam Scott">
+								              </div>
+							              </div>
+			              			</div>
+			              			<div class="col-md">
+			              				<div class="form-group">
+			              					<div class="form-field">
+				              					<div class="select-wrap">
+						                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+						                      <select name="" id="" class="form-control">
+						                      	<option value="">Category</option>
+						                      	<option value="">Full Time</option>
+						                        <option value="">Part Time</option>
+						                        <option value="">Freelance</option>
+						                        <option value="">Internship</option>
+						                        <option value="">Temporary</option>
+						                      </select>
+						                    </div>
+								              </div>
+							              </div>
+			              			</div>
+			              			<div class="col-md">
+			              				<div class="form-group">
+			              					<div class="form-field">
+				              					<div class="icon"><span class="icon-map-marker"></span></div>
+								                <input type="text" class="form-control" placeholder="Location">
+								              </div>
+							              </div>
+			              			</div>
+			              			<div class="col-md">
+			              				<div class="form-group">
+			              					<div class="form-field">
+								                <input type="submit" value="Search" class="form-control btn btn-primary">
+								              </div>
+							              </div>
+			              			</div>
+			              		</div>
+			              	</form>
+			              </div>
+			            </div>
+			          </div>
+			        </div>
+		        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+		<section class="ftco-section bg-light">
+			<div class="container">
+                {% if user.is_employee %}
+                {% if jobs %}
+				<div class="row justify-content-center mb-5 pb-3">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+          	<span class="subheading">Recently Added Jobs</span>
+            <h2 class="mb-4"><span>My Wish</span> List</h2>
+          </div>
+        </div>
+				<div class="row">
+
+            {% for job in jobs %}
+          <div class="col-md-12 ftco-animate">
+						<div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
+
+						  <div class="mb-4 mb-md-0 mr-5">
+						   <div class="job-post-item-header d-flex align-items-center">
+						     <h2 class="mr-3 text-black h4">{{ job.title }}</h2>
+						     <div class="badge-wrap">
+                                 {% if job.job_type == 'full_time' %}
+						      <span class="bg-warning text-white badge py-2 px-3">Full Time</span>
+                                 {% elif job.job_type == 'part_time'%}
+                             <span class="bg-info text-white badge py-2 px-3">Part Time</span>
+                            {% elif job.job_type == 'freelance'%}
+                             <span class="bg-secondary text-white badge py-2 px-3">Freelance</span>
+						     {% elif job.job_type == 'internship'%}
+                             <span class="bg-primary text-white badge py-2 px-3">Internship</span>
+						  {% elif job.job_type == 'temporary'%}
+                             <span class="bg-danger text-white badge py-2 px-3">Temporary</span>
+						    {% endif %}
+
+                             </div>
+						   </div>
+						   <div class="job-post-item-body d-block d-md-flex">
+						     <div class="mr-3"><span class="icon-layers"></span> <a href="#">{{ job.company }}</a></div>
+						     <div><span class="icon-my_location"></span> <span>{{ job.location }}</span></div>
+						   </div>
+						  </div>
+
+						  <div class="ml-auto d-flex">
+						  	<a href="{% url 'jobs:single_job' job.slug job.pk %}" class="btn btn-primary py-2 mr-1">Apply Job</a>
+                                {% if job.id in wish_list %}
+                              <a href="javascripts:void(0);" id="jobwl{{ job.id }}" title="Remove from my wish list" onclick="addorremove({{ job.id }})" class="btn btn-danger rounded-circle btn-favorite d-flex align-items-center">
+                                <span class="icon-heart"></span>
+                            </a>
+                              {% else %}
+
+                            <a href="javascripts:void(0);" id="jobwl{{ job.id }}" title="Add to my wish list" onclick="addorremove({{ job.id }})" class="btn btn-primary rounded-circle btn-favorite d-flex align-items-center">
+                                <span class="icon-heart"></span>
+                            </a>
+                              {% endif %}
+              </div>
+
+						</div>
+          </div> <!-- end -->
+                {% endfor %}
+                    {% else %}
+                    <div class="row justify-content-center mb-5 pb-3">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+            <h2 class="mb-4"><span>Your Wish List is </span> Empty!</h2>
+          </div>
+        </div>
+                    {% endif %}
+                    {% else %}
+                    <div class="row justify-content-center mb-5 pb-3">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+            <h2 class="mb-4"><span>You are not An</span> Employee!</h2>
+          </div>
+        </div>
+                    {% endif %}
+				</div>
+				{% if user.is_authenticated %}
+				<div class="row mt-5">
+                    {% if is_paginated %}
+          <div class="col text-center">
+            <div class="block-27">
+              <ul>
+                  {% if page_obj.has_previous %}
+                <li><a href="?page={{ page_obj.previous_page_number }}">&lt;</a></li>
+                  {% else %}
+                  <li class="disabled"><span>&lt;</span></li>
+                  {% endif %}
+                  {% for i in paginator.page_range %}
+                  {% if page_obj.number == i %}
+                <li class="active"><span>{{ i }}</span></li>
+                  {% else %}
+                <li><a href="?page={{ i }}">{{ i }}</a></li>
+                  {% endif %}
+                  {% endfor %}
+                  {% if page_obj.has_next %}
+                <li><a href="?page={{ page_obj.next_page_number }}">&gt;</a></li>
+                  {% else %}
+                  <li class="disabled"><span>&gt;</span></li>
+                  {% endif %}
+              </ul>
+            </div>
+          </div>
+                    {% endif %}
+        </div>
+				{% endif %}
+			</div>
+		</section>
+
+
+{% endblock %}
